@@ -6,7 +6,6 @@ import (
 	"io"
 	"log"
 	"os"
-	"sort"
 	"strconv"
 	"time"
 
@@ -58,21 +57,17 @@ func main() {
 		m_output_edges[k] = make([]string, 0)
 		m_usds_edges[k] = make([]string, 0)
 	}
-	// slice of edge names
-	edges := make([]string, 0)
-	for key := range m_graph {
-		edges = append(edges, key)
-	}
-	sort.Strings(edges)
 	// append 0 to graph slice to hold total us/ds length
 	for key := range m_graph {
 		m_graph[key] = append(m_graph[key], "0")
 	}
 	base_edges := make([]string, 1)
 	start := time.Now()
-	for i, edge := range edges {
+	i := 0
+	for edge := range m_graph {
 		if i%100 == 0 {
-			fmt.Printf("%d of %d (%.2f%%) %s\n", i, n, float32(i)/float32(n)*100, time.Since(start))
+			// fmt.Printf("%d of %d (%.2f%%) %s\n", i, n, float32(i)/float32(n)*100, time.Since(start))
+			fmt.Printf("%d of %d (%.2f%%) %.2f\n", i, n, float32(i)/float32(n)*100, time.Since(start).Seconds())
 		}
 		// trace upstream if the edge has not already been visited
 		if !m_visited[edge] {
@@ -81,6 +76,7 @@ func main() {
 			trace(edge, base_edges, m_graph, m_usds_edges, m_output_length, m_visited, 0)
 		}
 		m_output_edges[edge] = m_usds_edges[edge]
+		i++
 	}
 	// write the output to csv files
 	WriteToCSV("edges.csv", m_output_edges)
