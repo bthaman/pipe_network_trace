@@ -184,6 +184,9 @@ func outlets(m map[string][]string) []string {
 }
 
 func contains(s []string, e string) bool {
+	/*
+		check if string e is in slice s
+	*/
 	for _, a := range s {
 		if a == e {
 			return true
