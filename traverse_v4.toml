@@ -1,7 +1,0 @@
-# Settings for traverse_v4.go
-
-title = "Settings for traverse_v4.go"
-
-# [files] table contains network csv input file 
-[files]
-network_csv = "network_test.csv"
