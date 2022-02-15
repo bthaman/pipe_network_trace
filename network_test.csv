@@ -1,7 +1,7 @@
 edge_name,fnode,tnode,length
 A,1,4,50
 B,5,2,50
-K,2,1,75
+K,2,12,75
 C,3,6,50
 D,4,5,100
 E,6,5,100
