@@ -247,7 +247,7 @@ func WriteToCSV(csvfile string, data map[string][]string) {
 func WriteToCSV2(csvfile string, data map[string]string, output_field string) {
 	f, _ := os.Create(csvfile)
 	writer := csv.NewWriter(f)
-	header := make([]string, 0)
+	header := make([]string, 2)
 	header[0] = "Pipe ID"
 	header[1] = output_field
 	writer.Write(header)
