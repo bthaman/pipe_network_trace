@@ -110,6 +110,7 @@ func trace(starting_edge string, base_edges []string, m map[string][]string, m_e
 	depth++
 	if depth > 5000 {
 		fmt.Println("It appears the network has a loop. The last edge processed is: ", starting_edge)
+		fmt.Println("base edges: ", base_edges)
 		os.Exit(99)
 	}
 	// parent edges are those where their downstream node (tnode) is equal to the starting_edge upstream node (fnode)
