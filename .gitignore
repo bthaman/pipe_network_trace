@@ -15,4 +15,6 @@
 /traverse_v4.exe
 /traverse_v4.toml
 /upstream_pipe_count.csv
+/SpringfieldSewerLines.csv
+/network_springfield.csv
 *.xlsx
