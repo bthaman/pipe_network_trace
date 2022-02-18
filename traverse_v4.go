@@ -78,9 +78,16 @@ func main() {
 		m_output_edges[edge] = m_usds_edges[edge]
 		i++
 	}
+	// get the count of upstream edges for each edge
+	m_output_edge_count := map[string]string{}
+	for edge := range m_output_edges {
+		var length = strconv.Itoa(len(m_output_edges[edge]))
+		m_output_edge_count[edge] = length
+	}
 	// write the output to csv files
 	WriteToCSV("edges.csv", m_output_edges)
 	WriteToCSV2("total_length.csv", m_output_length)
+	WriteToCSV2("upstream_pipe_count.csv", m_output_edge_count)
 }
 
 func trace(starting_edge string, base_edges []string, m map[string][]string, m_edges map[string][]string,
