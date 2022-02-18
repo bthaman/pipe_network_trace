@@ -86,8 +86,8 @@ func main() {
 	}
 	// write the output to csv files
 	WriteToCSV("edges.csv", m_output_edges)
-	WriteToCSV2("total_length.csv", m_output_length)
-	WriteToCSV2("upstream_pipe_count.csv", m_output_edge_count)
+	WriteToCSV2("total_length.csv", m_output_length, "Total Upstream Length")
+	WriteToCSV2("upstream_pipe_count.csv", m_output_edge_count, "Count of Upstream Pipes")
 }
 
 func trace(starting_edge string, base_edges []string, m map[string][]string, m_edges map[string][]string,
@@ -244,9 +244,13 @@ func WriteToCSV(csvfile string, data map[string][]string) {
 	writer.Flush()
 	f.Close()
 }
-func WriteToCSV2(csvfile string, data map[string]string) {
+func WriteToCSV2(csvfile string, data map[string]string, output_field string) {
 	f, _ := os.Create(csvfile)
 	writer := csv.NewWriter(f)
+	header := make([]string, 0)
+	header[0] = "Pipe ID"
+	header[1] = output_field
+	writer.Write(header)
 
 	for k, v := range data {
 		vals := make([]string, 0)
