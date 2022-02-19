@@ -81,8 +81,7 @@ func main() {
 	// get the count of upstream edges for each edge
 	m_output_edge_count := map[string]string{}
 	for edge := range m_output_edges {
-		var length = strconv.Itoa(len(m_output_edges[edge]))
-		m_output_edge_count[edge] = length
+		m_output_edge_count[edge] = strconv.Itoa(len(m_output_edges[edge]))
 	}
 	// write the output to csv files
 	WriteToCSV("edges.csv", m_output_edges)
