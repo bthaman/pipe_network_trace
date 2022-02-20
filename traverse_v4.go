@@ -41,6 +41,7 @@ func main() {
 	f, _ := os.Open(network_csv)
 	defer f.Close()
 	// CSVToSingleMap returns a map with a key of edge_name, and a slice containing fnode, tnode, and edge_length
+	fmt.Println("Reading input csv and inititializing dictionaries...")
 	m_graph := CSVToSingleMap(f)
 	n := len(m_graph)
 	// outlet_edges := outlets(m_graph)
