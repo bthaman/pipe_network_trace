@@ -230,6 +230,10 @@ func CSVToSingleMap(reader io.Reader) map[string][]string {
 }
 
 func WriteToCSV(csvfile string, data map[string][]string) {
+	/*
+		writes map to csv.
+		map's value is a slice of strings
+	*/
 	f, _ := os.Create(csvfile)
 	writer := csv.NewWriter(f)
 
@@ -245,6 +249,10 @@ func WriteToCSV(csvfile string, data map[string][]string) {
 	f.Close()
 }
 func WriteToCSV2(csvfile string, data map[string]string, output_field string) {
+	/*
+		writes map to csv.
+		map's value is a single string
+	*/
 	f, _ := os.Create(csvfile)
 	writer := csv.NewWriter(f)
 	header := make([]string, 2)
