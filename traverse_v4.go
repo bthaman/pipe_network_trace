@@ -66,11 +66,11 @@ func main() {
 	start := time.Now()
 	i := 1
 	for edge := range m_graph {
-		if i%100 == 0 && n >= 100 {
+		if (i%100 == 0 && n >= 100) || i == 1 {
 			// fmt.Printf("%d of %d (%.2f%%) %s\n", i, n, float32(i)/float32(n)*100, time.Since(start))
 			fmt.Printf("%d of %d (%.2f%%) %.2f\n", i, n, float32(i)/float32(n)*100, time.Since(start).Seconds())
 		}
-		if n < 100 {
+		if n < 100 && i > 1 {
 			fmt.Printf("%d of %d (%.2f%%) %s\n", i, n, float32(i)/float32(n)*100, time.Since(start))
 		}
 		// trace upstream if the edge has not already been visited
