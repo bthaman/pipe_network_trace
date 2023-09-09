@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/naoina/toml"
+	"pipe_trace_module/github.com/naoina/toml"
 )
 
 type tomlConfig struct {
